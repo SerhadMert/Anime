@@ -5,7 +5,11 @@ import javax.inject.Inject
 
 class ApiDataSource
 @Inject constructor(private val apiService: ApiService): BaseDataSource(){
-    suspend fun getAnimeByName(title:String) = getResult {
+    suspend fun getAnimeByName(title: String) = getResult {
         apiService.getAnimeByName(title)
+    }
+
+    suspend fun getAnimeById(id: Int) = getResult {
+        apiService.getAnimeById(id)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.anime.data.model
+package com.example.anime.data.model.anime
 
 data class Descriptions(
     val en: String,
