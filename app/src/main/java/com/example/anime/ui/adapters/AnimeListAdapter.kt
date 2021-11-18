@@ -30,7 +30,8 @@ class AnimeListAdapter : RecyclerView.Adapter<AnimeListAdapter.AnimeListViewHold
                         3 -> textStatus.text = Constants.CANCELLED
                     }
                     crdItem.setOnClickListener {
-                        val action = AnimeListFragmentDirections.actionAnimeListFragmentToAnimeDetailFragment(anime.id!!)
+                        val action = AnimeListFragmentDirections
+                            .actionAnimeListFragmentToAnimeTabControllerFragment(anime.id!!)
                         it.findNavController().navigate(action)
                     }
                 }

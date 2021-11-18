@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.anime.base.BaseFragment
 import com.example.anime.databinding.FragmentAnimeDetailBinding
@@ -17,18 +16,17 @@ import com.example.anime.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding>(FragmentAnimeDetailBinding::inflate) {
+class AnimeDetailFragment(id:Int) : BaseFragment<FragmentAnimeDetailBinding>(FragmentAnimeDetailBinding::inflate) {
 
     private val viewModel by viewModels<AnimeDetailViewModel>()
-    private val args: AnimeDetailFragmentArgs by navArgs()
-
+    private val currentId = id
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getAnimeDetails()
     }
 
     private fun getAnimeDetails() {
-        viewModel.getAnimeById(args.animeId).observe(viewLifecycleOwner, { response ->
+        viewModel.getAnimeById(currentId).observe(viewLifecycleOwner, { response ->
             when (response.status) {
                 Resource.Status.LOADING -> {
                     binding.progressBar.show()
