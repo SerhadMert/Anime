@@ -11,16 +11,16 @@
         android:label="fragment_anime_list"
         tools:layout="@layout/fragment_anime_list" >
         <action
-            android:id="@+id/action_animeListFragment_to_animeDetailFragment"
-            app:destination="@id/animeDetailFragment" />
+            android:id="@+id/action_animeListFragment_to_animeTabControllerFragment"
+            app:destination="@id/animeTabControllerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/animeDetailFragment"
-        android:name="com.example.anime.ui.fragments.AnimeDetailFragment"
-        android:label="fragment_anime_detail"
-        tools:layout="@layout/fragment_anime_detail" >
+        android:id="@+id/animeTabControllerFragment"
+        android:name="com.example.anime.ui.fragments.AnimeTabControllerFragment"
+        android:label="fragment_anime_tab_controller"
+        tools:layout="@layout/fragment_anime_tab_controller" >
         <argument
-            android:name="animeId"
+            android:name="id"
             app:argType="integer" />
     </fragment>
 </navigation>
