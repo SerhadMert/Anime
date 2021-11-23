@@ -16,14 +16,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/card_view"
-        app:itemIconTint="@drawable/selector_nav_item"
-        app:itemTextColor="@color/text"
-        android:visibility="gone"
-        app:menu="@menu/bottom_nav" />
-
 </LinearLayout>

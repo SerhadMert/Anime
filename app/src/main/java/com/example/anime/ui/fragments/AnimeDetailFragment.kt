@@ -1,11 +1,11 @@
 package com.example.anime.ui.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.anime.base.BaseFragment
 import com.example.anime.databinding.FragmentAnimeDetailBinding
@@ -25,6 +25,7 @@ class AnimeDetailFragment(id:Int) : BaseFragment<FragmentAnimeDetailBinding>(Fra
         getAnimeDetails()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun getAnimeDetails() {
         viewModel.getAnimeById(currentId).observe(viewLifecycleOwner, { response ->
             when (response.status) {
@@ -39,11 +40,8 @@ class AnimeDetailFragment(id:Int) : BaseFragment<FragmentAnimeDetailBinding>(Fra
                                 .load(it.coverİmage)
                                 .into(imgPhoto)
                             txtName.text = it.titles?.en.toString()
-                            txtScore.text = it.score.toString()
+                            txtScore.text = "Score: ${it.score.toString()}"
                             txtDescription.text = Html.fromHtml(it.descriptions?.en)
-                            imgBack.setOnClickListener {
-                                findNavController().popBackStack()
-                            }
                         }
                     }
                 }

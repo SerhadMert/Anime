@@ -2,6 +2,7 @@ package com.example.anime.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.anime.base.BaseFragment
 import com.example.anime.databinding.FragmentAnimeTabControllerBinding
@@ -20,6 +21,7 @@ class AnimeTabControllerFragment : BaseFragment<FragmentAnimeTabControllerBindin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initTabs()
+        initBack()
     }
 
     private fun initTabs(){
@@ -29,5 +31,11 @@ class AnimeTabControllerFragment : BaseFragment<FragmentAnimeTabControllerBindin
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = fragmentArray[position]
         }.attach()
+    }
+
+    private fun initBack(){
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

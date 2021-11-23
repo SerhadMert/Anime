@@ -7,19 +7,19 @@ import javax.inject.Inject
 class Repository
 @Inject constructor(private var apiDataSource: ApiDataSource){
 
-    fun getALLAnimesByName(title: String) = performNetworkOperation {
-        apiDataSource.getALLAnimesByName(title)
+    fun getALLAnimesByName(title: String,page: Int) = performNetworkOperation {
+        apiDataSource.getALLAnimesByName(title,page)
     }
 
     fun getAnimeById(id : Int) = performNetworkOperation {
         apiDataSource.getAnimeById(id)
     }
 
-    fun getAllEpisodeById(id: Int,source: String,locale: String) = performNetworkOperation {
-        apiDataSource.getAllEpisodeById(id,source,locale)
+    fun getAllEpisodeById(id: Int,source: String,locale: String,number: Int?) = performNetworkOperation {
+        apiDataSource.getAllEpisodeById(id,source,locale,number)
     }
 
-    fun getAllSongsById(id: Int) = performNetworkOperation {
-        apiDataSource.getAllSongsById(id)
+    fun getAllSongsById(id: Int,title: String) = performNetworkOperation {
+        apiDataSource.getAllSongsById(id,title)
     }
 }
