@@ -1,13 +1,10 @@
 package com.example.anime.ui.fragments
 
 import android.os.Bundle
-import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.example.anime.base.BaseFragment
 import com.example.anime.databinding.FragmentAnimeEpisodeBinding
 import com.example.anime.ui.adapters.AnimeEpisodeAdapter
@@ -28,11 +25,11 @@ class AnimeEpisodeFragment(id: Int) : BaseFragment<FragmentAnimeEpisodeBinding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getAllEpisodes()
-
+        searchViewListener()
     }
 
-    private fun getAllEpisodes() {
-        viewModel.getAllEpisodeById(currentId,"animeworld","it").observe(viewLifecycleOwner, { response ->
+    private fun getAllEpisodes(number: Int? = null) {
+        viewModel.getAllEpisodeById(currentId,"dreamsub","it",number).observe(viewLifecycleOwner, { response ->
             when (response.status) {
                 Resource.Status.LOADING -> {
                     binding.progressBar.show()
@@ -58,12 +55,13 @@ class AnimeEpisodeFragment(id: Int) : BaseFragment<FragmentAnimeEpisodeBinding>
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if(!newText.isNullOrEmpty()){
-                    getAllEpisodes()
+                    getAllEpisodes(newText.toInt())
+                }else{
+                    getAllEpisodes(null)
                 }
                 return true
             }
 
         })
     }
-
 }

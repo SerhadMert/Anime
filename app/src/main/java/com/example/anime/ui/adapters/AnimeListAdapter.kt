@@ -22,7 +22,7 @@ class AnimeListAdapter : RecyclerView.Adapter<AnimeListAdapter.AnimeListViewHold
                 binding.apply {
                     Glide.with(imageView.context).load(anime.cover_image).into(imageView)
                     textAnimeName.text = anime.titles?.en
-                    textScore.text = anime.score.toString()
+                    textScore.text = "Score: ${anime.score.toString()}"
                     when(anime.status){
                         0 -> textStatus.text = Constants.FINISHED
                         1 -> textStatus.text = Constants.RELEASING

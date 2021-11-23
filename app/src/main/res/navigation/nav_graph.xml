@@ -22,5 +22,25 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_animeTabControllerFragment_to_animeSongSourceFragment"
+            app:destination="@id/animeSongSourceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeSongSourceFragment"
+        android:name="com.example.anime.ui.fragments.AnimeSongSourceFragment"
+        android:label="fragment_anime_song_source"
+        tools:layout="@layout/fragment_anime_song_source" >
+        <argument
+            android:name="spotify_url"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_animeSongSourceFragment_to_animeTabControllerFragment"
+            app:destination="@id/animeTabControllerFragment"
+            app:popUpTo="@id/animeTabControllerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

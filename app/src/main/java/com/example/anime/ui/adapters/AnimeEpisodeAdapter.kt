@@ -16,10 +16,11 @@ class AnimeEpisodeAdapter : RecyclerView.Adapter<AnimeEpisodeAdapter.AnimeEpisod
 
     inner class AnimeEpisodeViewHolder(private val binding: ItemEpisodeListBinding):
         RecyclerView.ViewHolder(binding.root) {
+            @SuppressLint("SetTextI18n")
             fun bind(episode: Document){
                 binding.apply {
                     textTitle.text = episode.title
-                    textNumber.text = episode.number.toString()
+                    textNumber.text = "${episode.number.toString()} -"
                     crdItem.setOnClickListener {
                         it.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(list[position].video)))
                     }

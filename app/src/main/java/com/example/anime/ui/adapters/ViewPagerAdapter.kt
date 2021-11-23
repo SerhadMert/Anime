@@ -12,7 +12,7 @@ import com.example.anime.ui.fragments.AnimeSongFragment
 class ViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle):
 FragmentStateAdapter(fragmentManager,lifecycle){
 
-    private var currentArgId =11
+    private var currentArgId =0
     override fun getItemCount() = 3
 
 

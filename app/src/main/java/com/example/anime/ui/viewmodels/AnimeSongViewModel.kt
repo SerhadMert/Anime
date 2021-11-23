@@ -12,7 +12,7 @@ import javax.inject.Inject
 class AnimeSongViewModel
 @Inject constructor(private var repository: Repository): ViewModel() {
 
-    fun getAllSongsById(id: Int): LiveData<Resource<Song>>{
-        return repository.getAllSongsById(id)
+    fun getAllSongsById(id: Int,title: String): LiveData<Resource<Song>>{
+        return repository.getAllSongsById(id,title)
     }
 }

@@ -14,7 +14,8 @@ interface ApiService {
 
     @GET(Constants.ALL_ANIMES_END_POINT)
     suspend fun getALLAnimesByName(
-        @Query("title") title: String
+        @Query("title") title: String,
+        @Query("page") page: Int
     ): Response<Anime>
 
     @GET(Constants.SPECIFIC_ANIME_END_POINT)
@@ -26,11 +27,13 @@ interface ApiService {
     suspend fun getALLEpisodesById(
         @Query("anime_id") id: Int,
         @Query("source") source: String,
-        @Query("locale") locale: String
+        @Query("locale") locale: String,
+        @Query("number") number: Int?
     ): Response<Episode>
 
     @GET(Constants.ALL_SONGS_END_POINT)
     suspend fun getAllSongsById(
-        @Query("anime_id") id: Int
+        @Query("anime_id") id: Int,
+        @Query("title") title: String
     ): Response<Song>
 }
