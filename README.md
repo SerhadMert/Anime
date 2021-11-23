@@ -3,7 +3,7 @@ This project is a sample app for Android using AniAPI
 
 ##Technologies
 - Retrofit
-- -Hilt (Dependency Injection)
+- Hilt (Dependency Injection)
 - MVVM
 - ViewBinding
 - Kotlin Coroutines
