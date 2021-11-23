@@ -1,7 +1,7 @@
 # Anime
 This project is a sample app for Android using AniAPI
 
-##Technologies
+## Technologies
 - Retrofit
 - Hilt (Dependency Injection)
 - MVVM
